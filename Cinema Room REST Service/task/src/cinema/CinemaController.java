@@ -2,9 +2,7 @@ package cinema;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,41 +11,37 @@ import java.util.List;
 @RequestMapping
 public class CinemaController {
 
+    @PostMapping("/purchase")
+    public ResponseEntity<?> purchaseTicket(@RequestBody TicketRequestDto ticketRequestDto) {
 
+        return new ResponseEntity<>(ticketRequestDto, HttpStatus.CREATED);
+    }
 
     @GetMapping("/seats")
     public ResponseEntity<?> getInfo() throws Exception {
-        int[][] cinemaSeats = new int[9][9];
         Seat seat;
-        Cinema cinema = new Cinema();
-        cinema.setTotalRows(9L);
-        cinema.setTotalColumns(9L);
         List<Seat> seats = new ArrayList<>();
 
-        int[][] dimArr = new int[9][9];
+        int[][] cinemaSeats = new int[9][9];
 
         int num = 1;
-        for (int i = 0; i < dimArr.length; i++) {
-            for (int j = 0; j < dimArr[i].length; j++) {
-                dimArr[i][j] = num++;
+        for (int i = 0; i < cinemaSeats.length; i++) {
+            for (int j = 0; j < cinemaSeats[i].length; j++) {
+                cinemaSeats[i][j] = num++;
             }
             num = 1;
         }
 
-        for (int i = 0; i < dimArr.length; i++) {
-            for (int j = 0; j < dimArr[i].length; j++) {
+        for (int i = 0; i < cinemaSeats.length; i++) {
+            for (int j = 0; j < cinemaSeats[i].length; j++) {
                 seat = new Seat();
-                //System.out.println("row:" + num);
                 seat.setRow((long) num);
-                //  System.out.println("column:" + dimArr[i][j]);
-                seat.setColumn((long) dimArr[i][j]);
+                seat.setColumn((long) cinemaSeats[i][j]);
                 seats.add(seat);
 
             }
             num++;
         }
-        cinema.setSeatList(seats);
-       // System.out.println(cinema);
         ResponseDto responseDto = new ResponseDto();
         responseDto.setTotalColumns(9L);
         responseDto.setTotalRows(9L);

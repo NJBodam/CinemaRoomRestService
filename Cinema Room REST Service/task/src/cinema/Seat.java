@@ -20,6 +20,7 @@ public class Seat {
         this.row = row;
     }
 
+
     public Long getColumn() {
         return column;
     }

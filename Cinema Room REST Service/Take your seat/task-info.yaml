@@ -223,48 +223,6 @@ files:
         };
     }
   learner_created: false
-- name: src/cinema/Seat.java
-  visible: true
-  text: |
-    package cinema;
-
-    public class Seat {
-        private Long row;
-        private Long column;
-
-        private Seat(Long row, Long column) {
-            this.row = row;
-            this.column = column;
-        }
-        Seat() {
-
-        }
-
-        public Long getRow() {
-            return row;
-        }
-
-        public void setRow(Long row) {
-            this.row = row;
-        }
-
-        public Long getColumn() {
-            return column;
-        }
-
-        public void setColumn(Long column) {
-            this.column = column;
-        }
-
-        @Override
-        public String toString() {
-            return "{" +
-                    "row=" + row +
-                    ", column=" + column +
-                    '}';
-        }
-    }
-  learner_created: true
 - name: src/cinema/ResponseDto.java
   visible: true
   text: |
@@ -443,6 +401,54 @@ files:
             return new ResponseEntity<>(responseDto, HttpStatus.OK);
         }
     }
+  learner_created: true
+- name: src/cinema/Seat.java
+  visible: true
+  text: |
+    package cinema;
+
+    public class Seat {
+        private Long row;
+        private Long column;
+
+        private Seat(Long row, Long column) {
+            this.row = row;
+            this.column = column;
+        }
+        Seat() {
+
+        }
+
+        public Long getRow() {
+            return row;
+        }
+
+        public void setRow(Long row) {
+            this.row = row;
+        }
+
+        public Long getColumn() {
+            return column;
+        }
+
+        public void setColumn(Long column) {
+            this.column = column;
+        }
+
+        @Override
+        public String toString() {
+            return "{" +
+                    "row=" + row +
+                    ", column=" + column +
+                    '}';
+        }
+    }
+  learner_created: true
+- name: src/cinema/TicketRequestDto.java
+  visible: true
+  learner_created: true
+- name: src/cinema/TicketResponseDto.java
+  visible: true
   learner_created: true
 feedback_link: https://hyperskill.org/learn/step/13376#comment
 status: Unchecked
