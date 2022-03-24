@@ -1,0 +1,26 @@
+[1;31m
+Start test 1[0m
+
+(  .   ____          _            __ _ _
+) /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+*( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
++ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+*  '  |____| .__|_| |_|_| |_\__, | / / / /
+) =========|_|==============|___/=/_/_/_/
++ :: Spring Boot ::                (v2.5.6)
+
+˚2022-03-24 12:02:51.086  INFO 2803 --- [    Test worker] cinema.Main                              : Starting Main using Java 17 on Bodams-Air with PID 2803 (started by mac in /Users/mac/Desktop/Cinema Room REST Service1/Cinema Room REST Service/task)
+•2022-03-24 12:02:51.092  INFO 2803 --- [    Test worker] cinema.Main                              : No active profile set, falling back to default profiles: default
+í2022-03-24 12:02:54.580  INFO 2803 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 28852 (http)
+~2022-03-24 12:02:54.647  INFO 2803 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+î2022-03-24 12:02:54.648  INFO 2803 --- [    Test worker] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
+ó2022-03-24 12:02:54.916  INFO 2803 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+§2022-03-24 12:02:54.917  INFO 2803 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3681 ms
+ö2022-03-24 12:02:56.523  INFO 2803 --- [    Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoint(s) beneath base path '/actuator'
+°2022-03-24 12:02:56.601  INFO 2803 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 28852 (http) with context path ''
+ò2022-03-24 12:02:56.629  INFO 2803 --- [    Test worker] cinema.Main                              : Started Main in 6.5 seconds (JVM running for 9.565)
+û2022-03-24 12:02:58.351  INFO 2803 --- [io-28852-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+ç2022-03-24 12:02:58.352  INFO 2803 --- [io-28852-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+Ö2022-03-24 12:02:58.358  INFO 2803 --- [io-28852-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+[1;31m
+Start test 2[0m
