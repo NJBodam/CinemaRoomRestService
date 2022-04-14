@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @RestController
 @RequestMapping
@@ -15,13 +16,34 @@ public class CinemaController {
 
     @PostMapping("/purchase")
     public ResponseEntity<?> purchaseTicket(@RequestBody TicketRequestDto ticketRequestDto) {
-        Long ticketIndex = ticketRequestDto.getRow() * ticketRequestDto.getColumn();
-        Seat seat = cinemaRoom.getAvailableSeats().get(Math.toIntExact(ticketIndex) - 1);
-        Long seatIndex = seat.getRow() * seat.getColumn();
-        if (!seatIndex.equals(ticketIndex)) {
-            return
+
+        if (ticketRequestDto.getRow()  > 9
+                || ticketRequestDto.getColumn() > 9
+                || ticketRequestDto.getRow() < 1
+                || ticketRequestDto.getColumn() < 1) {
+            return getErrorDtoResponseEntity("The number of a row or a column is out of bounds!");
         }
-        return new ResponseEntity<>(ticketRequestDto, HttpStatus.CREATED);
+
+        try {
+
+            long ticketIndex = ticketRequestDto.getRow() * ticketRequestDto.getColumn();
+            Seat seat = cinemaRoom.getAvailableSeats().get(Math.toIntExact(ticketIndex) - 1);
+            Long seatIndex = seat.getRow() * seat.getColumn();
+            if (!seatIndex.equals(ticketIndex) && ticketIndex <= 81) {
+                return getErrorDtoResponseEntity("The ticket has been already purchased!");
+            }
+            cinemaRoom.getAvailableSeats().remove((int) ticketIndex - 1);
+            return new ResponseEntity<>(seat, HttpStatus.OK);
+        } catch (IndexOutOfBoundsException e) {
+            return getErrorDtoResponseEntity("The ticket has been already purchased!");
+        }
+
+    }
+
+    private ResponseEntity<?> getErrorDtoResponseEntity(String s) {
+        ErrorDto errorDto = new ErrorDto();
+        errorDto.setError(s);
+        return new ResponseEntity<>(errorDto, HttpStatus.BAD_REQUEST);
     }
 
     @GetMapping("/seats")
@@ -56,11 +78,11 @@ public class CinemaController {
                     }
                     num++;
                 }
-                ResponseDto responseDto = new ResponseDto();
-                responseDto.setTotalColumns(9L);
-                responseDto.setTotalRows(9L);
-                responseDto.setAvailableSeats(seats);
-                cinemaRoom = responseDto;
+               // ResponseDto responseDto = new ResponseDto();
+                Objects.requireNonNull(cinemaRoom).setTotalColumns(9L);
+                cinemaRoom.setTotalRows(9L);
+                cinemaRoom.setAvailableSeats(seats);
+                //cinemaRoom = responseDto;
             }
 
         } catch (NullPointerException e) {

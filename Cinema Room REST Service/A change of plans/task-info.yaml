@@ -297,6 +297,397 @@ files:
         };
     }
   learner_created: false
+- name: src/cinema/Seat.java
+  visible: true
+  text: |
+    package cinema;
+
+    public class Seat {
+        private Long row;
+        private Long column;
+        private Long price;
+
+        private Seat(Long row, Long column, Long price) {
+            this.row = row;
+            this.column = column;
+            this.price = column;
+        }
+        Seat() {
+
+        }
+
+        public Long getPrice() {
+            return price;
+        }
+
+        public void setPrice(Long price) {
+            this.price = price;
+        }
+
+        public Long getRow() {
+            return row;
+        }
+
+        public void setRow(Long row) {
+            this.row = row;
+        }
+
+        public Long getColumn() {
+            return column;
+        }
+
+        public void setColumn(Long column) {
+            this.column = column;
+        }
+
+        @Override
+        public String toString() {
+            return "Seat{" +
+                    "row=" + row +
+                    ", column=" + column +
+                    ", price=" + price +
+                    '}';
+        }
+    }
+  learner_created: true
+- name: src/cinema/ErrorDto.java
+  visible: true
+  text: |
+    package cinema;
+
+    public class ErrorDto {
+        private String error;
+
+        public ErrorDto(String error) {
+            this.error = error;
+        }
+
+        public ErrorDto() {
+        }
+
+        public String getError() {
+            return error;
+        }
+
+        public void setError(String error) {
+            this.error = error;
+        }
+
+
+        @Override
+        public String toString() {
+            return "ErrorDto{" +
+                    "error='" + error + '\'' +
+                    '}';
+        }
+    }
+  learner_created: true
+- name: src/cinema/TicketResponseDto.java
+  visible: true
+  text: |
+    package cinema;
+
+    public class TicketResponseDto {
+        private Long row;
+        private Long column;
+        private Long price;
+
+        public TicketResponseDto(Long row, Long column, Long price) {
+            this.row = row;
+            this.column = column;
+            this.price = price;
+        }
+
+        public Long getRow() {
+            return row;
+        }
+
+        public void setRow(Long row) {
+            this.row = row;
+        }
+
+        public Long getColumn() {
+            return column;
+        }
+
+        public void setColumn(Long column) {
+            this.column = column;
+        }
+
+        public Long getPrice() {
+            return price;
+        }
+
+        public void setPrice(Long price) {
+            this.price = price;
+        }
+
+        @Override
+        public String toString() {
+            return "TicketResponseDto{" +
+                    "row=" + row +
+                    ", column=" + column +
+                    ", price=" + price +
+                    '}';
+        }
+    }
+  learner_created: true
+- name: src/cinema/ResponseDto.java
+  visible: true
+  text: |
+    package cinema;
+
+    import com.fasterxml.jackson.annotation.JsonGetter;
+
+    import java.util.List;
+
+    public class ResponseDto {
+        private Long totalRows;
+        private Long totalColumns;
+        private List<Seat> availableSeats;
+
+        public ResponseDto(Long totalRows, Long totalColumns, List<Seat> availableSeats) {
+            this.totalRows = totalRows;
+            this.totalColumns = totalColumns;
+            this.availableSeats = availableSeats;
+        }
+
+        public ResponseDto() {
+
+        }
+
+        @JsonGetter(value = "total_rows")
+        public Long getTotalRows() {
+            return totalRows;
+        }
+
+        public void setTotalRows(Long totalRows) {
+            this.totalRows = totalRows;
+        }
+
+        @JsonGetter(value = "total_columns")
+        public Long getTotalColumns() {
+            return totalColumns;
+        }
+
+        public void setTotalColumns(Long totalColumns) {
+            this.totalColumns = totalColumns;
+        }
+
+        @JsonGetter(value = "available_seats")
+        public List<Seat> getAvailableSeats() {
+            return availableSeats;
+        }
+
+        public void setAvailableSeats(List<Seat> availableSeats) {
+            this.availableSeats = availableSeats;
+        }
+
+        @Override
+        public String toString() {
+            return "{" +
+                    "total_rows=" + totalRows +
+                    ", total_columns=" + totalColumns +
+                    ", available_seats=" + availableSeats +
+                    '}';
+        }
+    }
+  learner_created: true
+- name: src/cinema/Cinema.java
+  visible: true
+  text: |
+    package cinema;
+
+    import java.util.List;
+
+    public class Cinema {
+        private Long totalRows;
+        private Long totalColumns;
+        private List<Seat> availableSeats;
+
+        public Cinema(Long totalRows, Long totalColumns, List<Seat> availableSeats) {
+            this.totalRows = totalRows;
+            this.totalColumns = totalColumns;
+            this.availableSeats = availableSeats;
+        }
+
+        public Cinema() {
+
+        }
+
+        public Long getTotalRows() {
+            return totalRows;
+        }
+
+        public void setTotalRows(Long totalRows) {
+            this.totalRows = totalRows;
+        }
+
+        public Long getTotalColumns() {
+            return totalColumns;
+        }
+
+        public void setTotalColumns(Long totalColumns) {
+            this.totalColumns = totalColumns;
+        }
+
+        public List<Seat> getSeatList() {
+            return availableSeats;
+        }
+
+        public void setSeatList(List<Seat> availableSeats) {
+            this.availableSeats = availableSeats;
+        }
+
+        @Override
+        public String toString() {
+            return "Cinema{" +
+                    "total_rows=" + totalRows +
+                    ", total_columns=" + totalColumns +
+                    ", available_seats=" + availableSeats +
+                    '}';
+        }
+    }
+  learner_created: true
+- name: src/cinema/TicketRequestDto.java
+  visible: true
+  text: |
+    package cinema;
+
+    public class TicketRequestDto {
+        private Long row;
+        private Long column;
+
+        public TicketRequestDto(Long row, Long column) {
+            this.row = row;
+            this.column = column;
+        }
+
+        public TicketRequestDto() {
+        }
+
+        public Long getRow() {
+            return row;
+        }
+
+        public void setRow(Long row) {
+            this.row = row;
+        }
+
+        public Long getColumn() {
+            return column;
+        }
+
+        public void setColumn(Long column) {
+            this.column = column;
+        }
+
+        @Override
+        public String toString() {
+            return "TicketRequestDto{" +
+                    "row=" + row +
+                    ", column=" + column +
+                    '}';
+        }
+    }
+  learner_created: true
+- name: src/cinema/CinemaController.java
+  visible: true
+  text: |
+    package cinema;
+
+    import org.springframework.http.HttpStatus;
+    import org.springframework.http.ResponseEntity;
+    import org.springframework.web.bind.annotation.*;
+
+    import java.util.ArrayList;
+    import java.util.List;
+
+    @RestController
+    @RequestMapping
+    public class CinemaController {
+
+        private static ResponseDto cinemaRoom;
+
+        @PostMapping("/purchase")
+        public ResponseEntity<?> purchaseTicket(@RequestBody TicketRequestDto ticketRequestDto) {
+
+            if (ticketRequestDto.getRow()  > 9
+                    || ticketRequestDto.getColumn() > 9
+                    || ticketRequestDto.getRow() < 1
+                    || ticketRequestDto.getColumn() < 1) {
+                return getErrorDtoResponseEntity("The number of a row or a column is out of bounds!");
+            }
+
+            try {
+
+                long ticketIndex = ticketRequestDto.getRow() * ticketRequestDto.getColumn();
+                Seat seat = cinemaRoom.getAvailableSeats().get(Math.toIntExact(ticketIndex) - 1);
+                Long seatIndex = seat.getRow() * seat.getColumn();
+                if (!seatIndex.equals(ticketIndex) && ticketIndex <= 81) {
+                    return getErrorDtoResponseEntity("The ticket has been already purchased!");
+                }
+                cinemaRoom.getAvailableSeats().remove((int) ticketIndex - 1);
+                return new ResponseEntity<>(seat, HttpStatus.OK);
+            } catch (IndexOutOfBoundsException e) {
+                return getErrorDtoResponseEntity("The ticket has been already purchased!");
+            }
+
+        }
+
+        private ResponseEntity<?> getErrorDtoResponseEntity(String s) {
+            ErrorDto errorDto = new ErrorDto();
+            errorDto.setError(s);
+            return new ResponseEntity<>(errorDto, HttpStatus.BAD_REQUEST);
+        }
+
+        @GetMapping("/seats")
+        public ResponseEntity<?> getInfo() throws Exception {
+            Seat seat;
+            List<Seat> seats = new ArrayList<>();
+
+            try {
+                if (cinemaRoom == null) {
+                    int[][] cinemaSeats = new int[9][9];
+
+                    int num = 1;
+                    for (int i = 0; i < cinemaSeats.length; i++) {
+                        for (int j = 0; j < cinemaSeats[i].length; j++) {
+                            cinemaSeats[i][j] = num++;
+                        }
+                        num = 1;
+                    }
+
+                    for (int i = 0; i < cinemaSeats.length; i++) {
+                        for (int j = 0; j < cinemaSeats[i].length; j++) {
+                            seat = new Seat();
+                            seat.setRow((long) num);
+                            if (num <= 4) {
+                                seat.setPrice(10L);
+                            } else {
+                                seat.setPrice(8L);
+                            }
+                            seat.setColumn((long) cinemaSeats[i][j]);
+                            seats.add(seat);
+
+                        }
+                        num++;
+                    }
+                    ResponseDto responseDto = new ResponseDto();
+                    responseDto.setTotalColumns(9L);
+                    responseDto.setTotalRows(9L);
+                    responseDto.setAvailableSeats(seats);
+                    cinemaRoom = responseDto;
+                }
+
+            } catch (NullPointerException e) {
+                System.err.println(e.getClass().getSimpleName());
+            }
+
+            return new ResponseEntity<>(cinemaRoom, HttpStatus.OK);
+        }
+    }
+  learner_created: true
 feedback_link: https://hyperskill.org/learn/step/13377#comment
 status: Unchecked
 record: -1

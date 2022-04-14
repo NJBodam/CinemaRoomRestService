@@ -450,9 +450,12 @@ files:
 - name: src/cinema/TicketResponseDto.java
   visible: true
   learner_created: true
-- name: src/cinema/CinemaRoom.java
+- name: src/cinema/ErrorDto.java
   visible: true
   learner_created: true
 feedback_link: https://hyperskill.org/learn/step/13376#comment
-status: Unchecked
-record: -1
+status: Solved
+feedback:
+  message: Congratulations!
+  time: Thu, 14 Apr 2022 23:01:00 UTC
+record: 2

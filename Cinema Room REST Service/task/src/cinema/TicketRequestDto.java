@@ -9,6 +9,9 @@ public class TicketRequestDto {
         this.column = column;
     }
 
+    public TicketRequestDto() {
+    }
+
     public Long getRow() {
         return row;
     }
@@ -23,5 +26,13 @@ public class TicketRequestDto {
 
     public void setColumn(Long column) {
         this.column = column;
+    }
+
+    @Override
+    public String toString() {
+        return "TicketRequestDto{" +
+                "row=" + row +
+                ", column=" + column +
+                '}';
     }
 }
