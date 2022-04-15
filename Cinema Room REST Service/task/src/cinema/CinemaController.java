@@ -6,17 +6,16 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 @RestController
 @RequestMapping
 public class CinemaController {
 
     private static ResponseDto cinemaRoom;
+    private static final List<Integer> soldTickets = new ArrayList<>();
 
     @PostMapping("/purchase")
     public ResponseEntity<?> purchaseTicket(@RequestBody TicketRequestDto ticketRequestDto) {
-
         if (ticketRequestDto.getRow()  > 9
                 || ticketRequestDto.getColumn() > 9
                 || ticketRequestDto.getRow() < 1
@@ -24,20 +23,19 @@ public class CinemaController {
             return getErrorDtoResponseEntity("The number of a row or a column is out of bounds!");
         }
 
-        try {
-
-            long ticketIndex = ticketRequestDto.getRow() * ticketRequestDto.getColumn();
-            Seat seat = cinemaRoom.getAvailableSeats().get(Math.toIntExact(ticketIndex) - 1);
-            Long seatIndex = seat.getRow() * seat.getColumn();
-            if (!seatIndex.equals(ticketIndex) && ticketIndex <= 81) {
-                return getErrorDtoResponseEntity("The ticket has been already purchased!");
-            }
-            cinemaRoom.getAvailableSeats().remove((int) ticketIndex - 1);
-            return new ResponseEntity<>(seat, HttpStatus.OK);
-        } catch (IndexOutOfBoundsException e) {
+        int ticketIndex = seatIdentifier(ticketRequestDto.getRow(), ticketRequestDto.getColumn());
+        Seat seat = cinemaRoom.getAvailableSeats().get(seatIdentifier(ticketRequestDto.getRow(), ticketRequestDto.getColumn()));
+        if (soldTickets.contains(ticketIndex)) {
             return getErrorDtoResponseEntity("The ticket has been already purchased!");
         }
+        soldTickets.add(ticketIndex);
+        return new ResponseEntity<>(seat, HttpStatus.OK);
 
+
+    }
+
+    private int seatIdentifier(long row, long column) {
+        return row > 1 ? Math.toIntExact((row - 1) * 9 + column - 1) : Math.toIntExact(row * column - 1);
     }
 
     private ResponseEntity<?> getErrorDtoResponseEntity(String s) {
@@ -78,11 +76,11 @@ public class CinemaController {
                     }
                     num++;
                 }
-               // ResponseDto responseDto = new ResponseDto();
-                Objects.requireNonNull(cinemaRoom).setTotalColumns(9L);
-                cinemaRoom.setTotalRows(9L);
-                cinemaRoom.setAvailableSeats(seats);
-                //cinemaRoom = responseDto;
+                ResponseDto responseDto = new ResponseDto();
+                responseDto.setTotalColumns(9L);
+                responseDto.setTotalRows(9L);
+                responseDto.setAvailableSeats(seats);
+                cinemaRoom = responseDto;
             }
 
         } catch (NullPointerException e) {
