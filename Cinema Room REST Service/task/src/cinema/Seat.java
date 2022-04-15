@@ -1,49 +1,42 @@
 package cinema;
 
+import java.util.UUID;
+
 public class Seat {
-    private Long row;
-    private Long column;
-    private Long price;
 
-    private Seat(Long row, Long column, Long price) {
-        this.row = row;
-        this.column = column;
-        this.price = column;
-    }
-    Seat() {
+    private String token;
+    private Ticket ticket;
 
+    public Seat(String token, Ticket ticket) {
+        this.token = token;
+        this.ticket = ticket;
     }
 
-    public Long getPrice() {
-        return price;
+    public Seat() {
+
     }
 
-    public void setPrice(Long price) {
-        this.price = price;
+    public String getToken() {
+        return token;
     }
 
-    public Long getRow() {
-        return row;
+    public void setToken(String token) {
+        this.token = token;
     }
 
-    public void setRow(Long row) {
-        this.row = row;
+    public Ticket getTicket() {
+        return ticket;
     }
 
-    public Long getColumn() {
-        return column;
-    }
-
-    public void setColumn(Long column) {
-        this.column = column;
+    public void setTicket(Ticket ticket) {
+        this.ticket = ticket;
     }
 
     @Override
     public String toString() {
         return "Seat{" +
-                "row=" + row +
-                ", column=" + column +
-                ", price=" + price +
+                "token='" + token + '\'' +
+                ", ticket=" + ticket +
                 '}';
     }
 }

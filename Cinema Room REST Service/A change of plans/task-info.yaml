@@ -297,59 +297,6 @@ files:
         };
     }
   learner_created: false
-- name: src/cinema/Seat.java
-  visible: true
-  text: |
-    package cinema;
-
-    public class Seat {
-        private Long row;
-        private Long column;
-        private Long price;
-
-        private Seat(Long row, Long column, Long price) {
-            this.row = row;
-            this.column = column;
-            this.price = column;
-        }
-        Seat() {
-
-        }
-
-        public Long getPrice() {
-            return price;
-        }
-
-        public void setPrice(Long price) {
-            this.price = price;
-        }
-
-        public Long getRow() {
-            return row;
-        }
-
-        public void setRow(Long row) {
-            this.row = row;
-        }
-
-        public Long getColumn() {
-            return column;
-        }
-
-        public void setColumn(Long column) {
-            this.column = column;
-        }
-
-        @Override
-        public String toString() {
-            return "Seat{" +
-                    "row=" + row +
-                    ", column=" + column +
-                    ", price=" + price +
-                    '}';
-        }
-    }
-  learner_created: true
 - name: src/cinema/ErrorDto.java
   visible: true
   text: |
@@ -378,173 +325,6 @@ files:
         public String toString() {
             return "ErrorDto{" +
                     "error='" + error + '\'' +
-                    '}';
-        }
-    }
-  learner_created: true
-- name: src/cinema/TicketResponseDto.java
-  visible: true
-  text: |
-    package cinema;
-
-    public class TicketResponseDto {
-        private Long row;
-        private Long column;
-        private Long price;
-
-        public TicketResponseDto(Long row, Long column, Long price) {
-            this.row = row;
-            this.column = column;
-            this.price = price;
-        }
-
-        public Long getRow() {
-            return row;
-        }
-
-        public void setRow(Long row) {
-            this.row = row;
-        }
-
-        public Long getColumn() {
-            return column;
-        }
-
-        public void setColumn(Long column) {
-            this.column = column;
-        }
-
-        public Long getPrice() {
-            return price;
-        }
-
-        public void setPrice(Long price) {
-            this.price = price;
-        }
-
-        @Override
-        public String toString() {
-            return "TicketResponseDto{" +
-                    "row=" + row +
-                    ", column=" + column +
-                    ", price=" + price +
-                    '}';
-        }
-    }
-  learner_created: true
-- name: src/cinema/ResponseDto.java
-  visible: true
-  text: |
-    package cinema;
-
-    import com.fasterxml.jackson.annotation.JsonGetter;
-
-    import java.util.List;
-
-    public class ResponseDto {
-        private Long totalRows;
-        private Long totalColumns;
-        private List<Seat> availableSeats;
-
-        public ResponseDto(Long totalRows, Long totalColumns, List<Seat> availableSeats) {
-            this.totalRows = totalRows;
-            this.totalColumns = totalColumns;
-            this.availableSeats = availableSeats;
-        }
-
-        public ResponseDto() {
-
-        }
-
-        @JsonGetter(value = "total_rows")
-        public Long getTotalRows() {
-            return totalRows;
-        }
-
-        public void setTotalRows(Long totalRows) {
-            this.totalRows = totalRows;
-        }
-
-        @JsonGetter(value = "total_columns")
-        public Long getTotalColumns() {
-            return totalColumns;
-        }
-
-        public void setTotalColumns(Long totalColumns) {
-            this.totalColumns = totalColumns;
-        }
-
-        @JsonGetter(value = "available_seats")
-        public List<Seat> getAvailableSeats() {
-            return availableSeats;
-        }
-
-        public void setAvailableSeats(List<Seat> availableSeats) {
-            this.availableSeats = availableSeats;
-        }
-
-        @Override
-        public String toString() {
-            return "{" +
-                    "total_rows=" + totalRows +
-                    ", total_columns=" + totalColumns +
-                    ", available_seats=" + availableSeats +
-                    '}';
-        }
-    }
-  learner_created: true
-- name: src/cinema/Cinema.java
-  visible: true
-  text: |
-    package cinema;
-
-    import java.util.List;
-
-    public class Cinema {
-        private Long totalRows;
-        private Long totalColumns;
-        private List<Seat> availableSeats;
-
-        public Cinema(Long totalRows, Long totalColumns, List<Seat> availableSeats) {
-            this.totalRows = totalRows;
-            this.totalColumns = totalColumns;
-            this.availableSeats = availableSeats;
-        }
-
-        public Cinema() {
-
-        }
-
-        public Long getTotalRows() {
-            return totalRows;
-        }
-
-        public void setTotalRows(Long totalRows) {
-            this.totalRows = totalRows;
-        }
-
-        public Long getTotalColumns() {
-            return totalColumns;
-        }
-
-        public void setTotalColumns(Long totalColumns) {
-            this.totalColumns = totalColumns;
-        }
-
-        public List<Seat> getSeatList() {
-            return availableSeats;
-        }
-
-        public void setSeatList(List<Seat> availableSeats) {
-            this.availableSeats = availableSeats;
-        }
-
-        @Override
-        public String toString() {
-            return "Cinema{" +
-                    "total_rows=" + totalRows +
-                    ", total_columns=" + totalColumns +
-                    ", available_seats=" + availableSeats +
                     '}';
         }
     }
@@ -685,6 +465,123 @@ files:
             }
 
             return new ResponseEntity<>(cinemaRoom, HttpStatus.OK);
+        }
+    }
+  learner_created: true
+- name: src/cinema/Ticket.java
+  visible: true
+  text: |
+    package cinema;
+
+    public class Seat {
+        private Long row;
+        private Long column;
+        private Long price;
+
+        private Seat(Long row, Long column, Long price) {
+            this.row = row;
+            this.column = column;
+            this.price = column;
+        }
+        Seat() {
+
+        }
+
+        public Long getPrice() {
+            return price;
+        }
+
+        public void setPrice(Long price) {
+            this.price = price;
+        }
+
+        public Long getRow() {
+            return row;
+        }
+
+        public void setRow(Long row) {
+            this.row = row;
+        }
+
+        public Long getColumn() {
+            return column;
+        }
+
+        public void setColumn(Long column) {
+            this.column = column;
+        }
+
+        @Override
+        public String toString() {
+            return "Seat{" +
+                    "row=" + row +
+                    ", column=" + column +
+                    ", price=" + price +
+                    '}';
+        }
+    }
+  learner_created: true
+- name: src/cinema/Seat.java
+  visible: true
+  learner_created: true
+- name: src/cinema/Cinema.java
+  visible: true
+  text: |
+    package cinema;
+
+    import com.fasterxml.jackson.annotation.JsonGetter;
+
+    import java.util.List;
+
+    public class ResponseDto {
+        private Long totalRows;
+        private Long totalColumns;
+        private List<Seat> availableSeats;
+
+        public ResponseDto(Long totalRows, Long totalColumns, List<Seat> availableSeats) {
+            this.totalRows = totalRows;
+            this.totalColumns = totalColumns;
+            this.availableSeats = availableSeats;
+        }
+
+        public ResponseDto() {
+
+        }
+
+        @JsonGetter(value = "total_rows")
+        public Long getTotalRows() {
+            return totalRows;
+        }
+
+        public void setTotalRows(Long totalRows) {
+            this.totalRows = totalRows;
+        }
+
+        @JsonGetter(value = "total_columns")
+        public Long getTotalColumns() {
+            return totalColumns;
+        }
+
+        public void setTotalColumns(Long totalColumns) {
+            this.totalColumns = totalColumns;
+        }
+
+        @JsonGetter(value = "available_seats")
+        public List<Seat> getAvailableSeats() {
+            return availableSeats;
+        }
+
+        public void setAvailableSeats(List<Seat> availableSeats) {
+            this.availableSeats = availableSeats;
+        }
+
+        @Override
+        public String toString() {
+            return "{" +
+                    "total_rows=" + totalRows +
+                    ", total_columns=" + totalColumns +
+                    ", available_seats=" + availableSeats +
+                    '}';
         }
     }
   learner_created: true

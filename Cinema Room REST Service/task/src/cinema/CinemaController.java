@@ -11,7 +11,7 @@ import java.util.List;
 @RequestMapping
 public class CinemaController {
 
-    private static ResponseDto cinemaRoom;
+    private static Cinema cinemaRoom;
     private static final List<Integer> soldTickets = new ArrayList<>();
 
     @PostMapping("/purchase")
@@ -23,18 +23,18 @@ public class CinemaController {
             return getErrorDtoResponseEntity("The number of a row or a column is out of bounds!");
         }
 
-        int ticketIndex = seatIdentifier(ticketRequestDto.getRow(), ticketRequestDto.getColumn());
-        Seat seat = cinemaRoom.getAvailableSeats().get(seatIdentifier(ticketRequestDto.getRow(), ticketRequestDto.getColumn()));
+        int ticketIndex = ticketIdentifier(ticketRequestDto.getRow(), ticketRequestDto.getColumn());
+        Ticket ticket = cinemaRoom.getAvailableTickets().get(ticketIdentifier(ticketRequestDto.getRow(), ticketRequestDto.getColumn()));
         if (soldTickets.contains(ticketIndex)) {
             return getErrorDtoResponseEntity("The ticket has been already purchased!");
         }
         soldTickets.add(ticketIndex);
-        return new ResponseEntity<>(seat, HttpStatus.OK);
+        return new ResponseEntity<>(ticket, HttpStatus.OK);
 
 
     }
 
-    private int seatIdentifier(long row, long column) {
+    private int ticketIdentifier(long row, long column) {
         return row > 1 ? Math.toIntExact((row - 1) * 9 + column - 1) : Math.toIntExact(row * column - 1);
     }
 
@@ -46,8 +46,8 @@ public class CinemaController {
 
     @GetMapping("/seats")
     public ResponseEntity<?> getInfo() throws Exception {
-        Seat seat;
-        List<Seat> seats = new ArrayList<>();
+        Ticket ticket;
+        List<Ticket> tickets = new ArrayList<>();
 
         try {
             if (cinemaRoom == null) {
@@ -63,24 +63,24 @@ public class CinemaController {
 
                 for (int i = 0; i < cinemaSeats.length; i++) {
                     for (int j = 0; j < cinemaSeats[i].length; j++) {
-                        seat = new Seat();
-                        seat.setRow((long) num);
+                        ticket = new Ticket();
+                        ticket.setRow((long) num);
                         if (num <= 4) {
-                            seat.setPrice(10L);
+                            ticket.setPrice(10L);
                         } else {
-                            seat.setPrice(8L);
+                            ticket.setPrice(8L);
                         }
-                        seat.setColumn((long) cinemaSeats[i][j]);
-                        seats.add(seat);
+                        ticket.setColumn((long) cinemaSeats[i][j]);
+                        tickets.add(ticket);
 
                     }
                     num++;
                 }
-                ResponseDto responseDto = new ResponseDto();
-                responseDto.setTotalColumns(9L);
-                responseDto.setTotalRows(9L);
-                responseDto.setAvailableSeats(seats);
-                cinemaRoom = responseDto;
+                Cinema cinema = new Cinema();
+                cinema.setTotalColumns(9L);
+                cinema.setTotalRows(9L);
+                cinema.setAvailableTickets(tickets);
+                cinemaRoom = cinema;
             }
 
         } catch (NullPointerException e) {

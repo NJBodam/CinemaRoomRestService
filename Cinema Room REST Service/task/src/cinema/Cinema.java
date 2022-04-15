@@ -1,22 +1,25 @@
 package cinema;
 
+import com.fasterxml.jackson.annotation.JsonGetter;
+
 import java.util.List;
 
 public class Cinema {
     private Long totalRows;
     private Long totalColumns;
-    private List<Seat> availableSeats;
+    private List<Ticket> availableTickets;
 
-    public Cinema(Long totalRows, Long totalColumns, List<Seat> availableSeats) {
+    public Cinema(Long totalRows, Long totalColumns, List<Ticket> availableTickets) {
         this.totalRows = totalRows;
         this.totalColumns = totalColumns;
-        this.availableSeats = availableSeats;
+        this.availableTickets = availableTickets;
     }
 
     public Cinema() {
 
     }
 
+    @JsonGetter(value = "total_rows")
     public Long getTotalRows() {
         return totalRows;
     }
@@ -25,6 +28,7 @@ public class Cinema {
         this.totalRows = totalRows;
     }
 
+    @JsonGetter(value = "total_columns")
     public Long getTotalColumns() {
         return totalColumns;
     }
@@ -33,20 +37,21 @@ public class Cinema {
         this.totalColumns = totalColumns;
     }
 
-    public List<Seat> getSeatList() {
-        return availableSeats;
+    @JsonGetter(value = "available_seats")
+    public List<Ticket> getAvailableTickets() {
+        return availableTickets;
     }
 
-    public void setSeatList(List<Seat> availableSeats) {
-        this.availableSeats = availableSeats;
+    public void setAvailableTickets(List<Ticket> availableTickets) {
+        this.availableTickets = availableTickets;
     }
 
     @Override
     public String toString() {
-        return "Cinema{" +
+        return "{" +
                 "total_rows=" + totalRows +
                 ", total_columns=" + totalColumns +
-                ", available_seats=" + availableSeats +
+                ", available_seats=" + availableTickets +
                 '}';
     }
 }

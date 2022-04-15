@@ -223,7 +223,7 @@ files:
         };
     }
   learner_created: false
-- name: src/cinema/ResponseDto.java
+- name: src/cinema/Cinema.java
   visible: true
   text: |
     package cinema;
@@ -402,7 +402,7 @@ files:
         }
     }
   learner_created: true
-- name: src/cinema/Seat.java
+- name: src/cinema/Ticket.java
   visible: true
   text: |
     package cinema;

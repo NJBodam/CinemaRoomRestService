@@ -116,10 +116,10 @@ files:
 - name: src/cinema/Cinema.java
   visible: true
   learner_created: true
-- name: src/cinema/Seat.java
+- name: src/cinema/Ticket.java
   visible: true
   learner_created: true
-- name: src/cinema/ResponseDto.java
+- name: src/cinema/Cinema.java
   visible: true
   learner_created: true
 feedback_link: https://hyperskill.org/learn/step/13375#comment
