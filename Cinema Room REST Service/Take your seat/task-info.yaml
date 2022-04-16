@@ -228,67 +228,6 @@ files:
   text: |
     package cinema;
 
-    import com.fasterxml.jackson.annotation.JsonGetter;
-
-    import java.util.List;
-
-    public class ResponseDto {
-        private Long totalRows;
-        private Long totalColumns;
-        private List<Seat> availableSeats;
-
-        public ResponseDto(Long totalRows, Long totalColumns, List<Seat> availableSeats) {
-            this.totalRows = totalRows;
-            this.totalColumns = totalColumns;
-            this.availableSeats = availableSeats;
-        }
-
-        public ResponseDto() {
-
-        }
-
-        @JsonGetter(value = "total_rows")
-        public Long getTotalRows() {
-            return totalRows;
-        }
-
-        public void setTotalRows(Long totalRows) {
-            this.totalRows = totalRows;
-        }
-
-        @JsonGetter(value = "total_columns")
-        public Long getTotalColumns() {
-            return totalColumns;
-        }
-
-        public void setTotalColumns(Long totalColumns) {
-            this.totalColumns = totalColumns;
-        }
-
-        @JsonGetter(value = "available_seats")
-        public List<Seat> getAvailableSeats() {
-            return availableSeats;
-        }
-
-        public void setAvailableSeats(List<Seat> availableSeats) {
-            this.availableSeats = availableSeats;
-        }
-
-        @Override
-        public String toString() {
-            return "{" +
-                    "total_rows=" + totalRows +
-                    ", total_columns=" + totalColumns +
-                    ", available_seats=" + availableSeats +
-                    '}';
-        }
-    }
-  learner_created: true
-- name: src/cinema/Cinema.java
-  visible: true
-  text: |
-    package cinema;
-
     import java.util.List;
 
     public class Cinema {
@@ -402,7 +341,7 @@ files:
         }
     }
   learner_created: true
-- name: src/cinema/Ticket.java
+- name: src/cinema/Seat.java
   visible: true
   text: |
     package cinema;
@@ -447,11 +386,72 @@ files:
 - name: src/cinema/TicketRequestDto.java
   visible: true
   learner_created: true
+- name: src/cinema/ErrorDto.java
+  visible: true
+  learner_created: true
 - name: src/cinema/TicketResponseDto.java
   visible: true
   learner_created: true
-- name: src/cinema/ErrorDto.java
+- name: src/cinema/ResponseDto.java
   visible: true
+  text: |
+    package cinema;
+
+    import com.fasterxml.jackson.annotation.JsonGetter;
+
+    import java.util.List;
+
+    public class ResponseDto {
+        private Long totalRows;
+        private Long totalColumns;
+        private List<Seat> availableSeats;
+
+        public ResponseDto(Long totalRows, Long totalColumns, List<Seat> availableSeats) {
+            this.totalRows = totalRows;
+            this.totalColumns = totalColumns;
+            this.availableSeats = availableSeats;
+        }
+
+        public ResponseDto() {
+
+        }
+
+        @JsonGetter(value = "total_rows")
+        public Long getTotalRows() {
+            return totalRows;
+        }
+
+        public void setTotalRows(Long totalRows) {
+            this.totalRows = totalRows;
+        }
+
+        @JsonGetter(value = "total_columns")
+        public Long getTotalColumns() {
+            return totalColumns;
+        }
+
+        public void setTotalColumns(Long totalColumns) {
+            this.totalColumns = totalColumns;
+        }
+
+        @JsonGetter(value = "available_seats")
+        public List<Seat> getAvailableSeats() {
+            return availableSeats;
+        }
+
+        public void setAvailableSeats(List<Seat> availableSeats) {
+            this.availableSeats = availableSeats;
+        }
+
+        @Override
+        public String toString() {
+            return "{" +
+                    "total_rows=" + totalRows +
+                    ", total_columns=" + totalColumns +
+                    ", available_seats=" + availableSeats +
+                    '}';
+        }
+    }
   learner_created: true
 feedback_link: https://hyperskill.org/learn/step/13376#comment
 status: Solved

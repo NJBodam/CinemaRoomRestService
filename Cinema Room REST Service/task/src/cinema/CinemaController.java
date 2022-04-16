@@ -69,7 +69,6 @@ public class CinemaController {
         Optional<String> pw = Optional.ofNullable(password);
 
         if (pw.isPresent() && pw.get().equals(PASSWORD)) {
-            // return getErrorDtoResponseEntity(ERR_WRONG_PASSWORD, HttpStatus.UNAUTHORIZED);
             stats.setNumberOfAvailableSeats(81 - soldSeats.size());
             int totalIncome = soldSeats.parallelStream().mapToInt(x -> Math.toIntExact(x.getTicket().getPrice())).sum();
             stats.setCurrentIncome(totalIncome);
