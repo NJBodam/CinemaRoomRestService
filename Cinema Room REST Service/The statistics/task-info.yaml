@@ -390,6 +390,426 @@ files:
         };
     }
   learner_created: false
+- name: src/cinema/Seat.java
+  visible: true
+  text: |
+    package cinema;
+
+    import java.util.UUID;
+
+    public class Seat {
+
+        private String token;
+        private Ticket ticket;
+
+        public Seat(String token, Ticket ticket) {
+            this.token = token;
+            this.ticket = ticket;
+        }
+
+        public Seat() {
+
+        }
+
+        public String getToken() {
+            return token;
+        }
+
+        public void setToken(String token) {
+            this.token = token;
+        }
+
+        public Ticket getTicket() {
+            return ticket;
+        }
+
+        public void setTicket(Ticket ticket) {
+            this.ticket = ticket;
+        }
+
+        @Override
+        public String toString() {
+            return "Seat{" +
+                    "token='" + token + '\'' +
+                    ", ticket=" + ticket +
+                    '}';
+        }
+    }
+  learner_created: true
+- name: src/cinema/ErrorDto.java
+  visible: true
+  text: |
+    package cinema;
+
+    public class ErrorDto {
+        private String error;
+
+        public ErrorDto(String error) {
+            this.error = error;
+        }
+
+        public ErrorDto() {
+        }
+
+        public String getError() {
+            return error;
+        }
+
+        public void setError(String error) {
+            this.error = error;
+        }
+
+
+        @Override
+        public String toString() {
+            return "ErrorDto{" +
+                    "error='" + error + '\'' +
+                    '}';
+        }
+    }
+  learner_created: true
+- name: src/cinema/Ticket.java
+  visible: true
+  text: |
+    package cinema;
+
+    public class Ticket {
+        private Long row;
+        private Long column;
+        private Long price;
+
+        private Ticket(Long row, Long column, Long price) {
+            this.row = row;
+            this.column = column;
+            this.price = price;
+        }
+        Ticket() {
+
+        }
+
+        public Long getPrice() {
+            return price;
+        }
+
+        public void setPrice(Long price) {
+            this.price = price;
+        }
+
+        public Long getRow() {
+            return row;
+        }
+
+        public void setRow(Long row) {
+            this.row = row;
+        }
+
+        public Long getColumn() {
+            return column;
+        }
+
+        public void setColumn(Long column) {
+            this.column = column;
+        }
+
+        @Override
+        public String toString() {
+            return "Seat{" +
+                    "row=" + row +
+                    ", column=" + column +
+                    ", price=" + price +
+                    '}';
+        }
+    }
+  learner_created: true
+- name: src/cinema/Cinema.java
+  visible: true
+  text: |
+    package cinema;
+
+    import com.fasterxml.jackson.annotation.JsonGetter;
+
+    import java.util.List;
+
+    public class Cinema {
+        private Long totalRows;
+        private Long totalColumns;
+        private List<Ticket> availableTickets;
+
+        public Cinema(Long totalRows, Long totalColumns, List<Ticket> availableTickets) {
+            this.totalRows = totalRows;
+            this.totalColumns = totalColumns;
+            this.availableTickets = availableTickets;
+        }
+
+        public Cinema() {
+
+        }
+
+        @JsonGetter(value = "total_rows")
+        public Long getTotalRows() {
+            return totalRows;
+        }
+
+        public void setTotalRows(Long totalRows) {
+            this.totalRows = totalRows;
+        }
+
+        @JsonGetter(value = "total_columns")
+        public Long getTotalColumns() {
+            return totalColumns;
+        }
+
+        public void setTotalColumns(Long totalColumns) {
+            this.totalColumns = totalColumns;
+        }
+
+        @JsonGetter(value = "available_seats")
+        public List<Ticket> getAvailableTickets() {
+            return availableTickets;
+        }
+
+        public void setAvailableTickets(List<Ticket> availableTickets) {
+            this.availableTickets = availableTickets;
+        }
+
+        @Override
+        public String toString() {
+            return "{" +
+                    "total_rows=" + totalRows +
+                    ", total_columns=" + totalColumns +
+                    ", available_tickets=" + availableTickets +
+                    '}';
+        }
+    }
+  learner_created: true
+- name: src/cinema/TicketRequestDto.java
+  visible: true
+  text: |
+    package cinema;
+
+    public class TicketRequestDto {
+        private Long row;
+        private Long column;
+
+        public TicketRequestDto(Long row, Long column) {
+            this.row = row;
+            this.column = column;
+        }
+
+        public TicketRequestDto() {
+        }
+
+        public Long getRow() {
+            return row;
+        }
+
+        public void setRow(Long row) {
+            this.row = row;
+        }
+
+        public Long getColumn() {
+            return column;
+        }
+
+        public void setColumn(Long column) {
+            this.column = column;
+        }
+
+        @Override
+        public String toString() {
+            return "TicketRequestDto{" +
+                    "row=" + row +
+                    ", column=" + column +
+                    '}';
+        }
+    }
+  learner_created: true
+- name: src/cinema/CinemaController.java
+  visible: true
+  text: |
+    package cinema;
+
+    import org.springframework.http.HttpStatus;
+    import org.springframework.http.ResponseEntity;
+    import org.springframework.web.bind.annotation.*;
+
+    import java.util.ArrayList;
+    import java.util.List;
+    import java.util.Optional;
+    import java.util.UUID;
+
+    @RestController
+    @RequestMapping
+    public class CinemaController {
+
+        private static Cinema cinemaRoom;
+        private static final List<Seat> soldSeats = new ArrayList<>();
+        private static final List<Seat> availableSeats = new ArrayList<>();
+
+        private static final String ERR_ALREADY_PURCHASED = "The ticket has been already purchased!";
+        private static final String ERR_OUT_OF_BOUNDS = "The number of a row or a column is out of bounds!";
+        private static final String ERR_WRONG_TOKEN = "Wrong token!";
+
+        @PostMapping("/purchase")
+        public ResponseEntity<?> purchaseTicket(@RequestBody TicketRequestDto ticketRequestDto) {
+            if (ticketRequestDto.getRow()  > 9
+                    || ticketRequestDto.getColumn() > 9
+                    || ticketRequestDto.getRow() < 1
+                    || ticketRequestDto.getColumn() < 1) {
+                return getErrorDtoResponseEntity(ERR_OUT_OF_BOUNDS);
+            }
+
+            Seat seat = availableSeats.get(ticketIdentifier(ticketRequestDto.getRow(), ticketRequestDto.getColumn()));
+            if (soldSeats.contains(seat)) {
+                return getErrorDtoResponseEntity(ERR_ALREADY_PURCHASED);
+            }
+            soldSeats.add(seat);
+            return new ResponseEntity<>(seat, HttpStatus.OK);
+        }
+
+        private int ticketIdentifier(long row, long column) {
+            return row > 1 ? Math.toIntExact((row - 1) * 9 + column - 1) : Math.toIntExact(row * column - 1);
+        }
+
+        private ResponseEntity<?> getErrorDtoResponseEntity(String s) {
+            ErrorDto errorDto = new ErrorDto();
+            errorDto.setError(s);
+            return new ResponseEntity<>(errorDto, HttpStatus.BAD_REQUEST);
+        }
+
+        @PostMapping("/return")
+        public ResponseEntity<?> returnTicket(@RequestBody ReturnTicketRequestDto returnTicketReq) {
+            Optional<Seat> optionalSeat = soldSeats.stream().filter(x -> x.getToken().equals(returnTicketReq.getToken())).findFirst();
+            ReturnedTicket rt = new ReturnedTicket();
+            if(optionalSeat.isEmpty()) {
+                return getErrorDtoResponseEntity(ERR_WRONG_TOKEN);
+            }
+            rt.setReturnedTicket(optionalSeat.orElseThrow().getTicket());
+            return new ResponseEntity<>(rt, HttpStatus.OK);
+        }
+
+        @GetMapping("/seats")
+        public ResponseEntity<?> getInfo() throws Exception {
+            Ticket ticket;
+            List<Ticket> tickets = new ArrayList<>();
+            Seat seat;
+
+            try {
+                if (cinemaRoom == null) {
+                    int[][] cinemaSeats = new int[9][9];
+
+                    int num = 1;
+                    for (int i = 0; i < cinemaSeats.length; i++) {
+                        for (int j = 0; j < cinemaSeats[i].length; j++) {
+                            cinemaSeats[i][j] = num++;
+                        }
+                        num = 1;
+                    }
+
+                    for (int i = 0; i < cinemaSeats.length; i++) {
+                        for (int j = 0; j < cinemaSeats[i].length; j++) {
+                            ticket = new Ticket();
+                            ticket.setRow((long) num);
+                            if (num <= 4) {
+                                ticket.setPrice(10L);
+                            } else {
+                                ticket.setPrice(8L);
+                            }
+                            ticket.setColumn((long) cinemaSeats[i][j]);
+                            tickets.add(ticket);
+                            seat = new Seat();
+                            seat.setTicket(ticket);
+                            seat.setToken(UUID.randomUUID().toString());
+                            availableSeats.add(seat);
+                        }
+                        num++;
+                    }
+                    Cinema cinema = new Cinema();
+                    cinema.setTotalColumns(9L);
+                    cinema.setTotalRows(9L);
+                    cinema.setAvailableTickets(tickets);
+                    cinemaRoom = cinema;
+                }
+
+            } catch (NullPointerException e) {
+                System.err.println(e.getClass().getSimpleName());
+            }
+            return new ResponseEntity<>(cinemaRoom, HttpStatus.OK);
+        }
+    }
+  learner_created: true
+- name: src/cinema/ReturnedTicket.java
+  visible: true
+  text: |
+    package cinema;
+
+    import com.fasterxml.jackson.annotation.JsonGetter;
+
+    public class ReturnedTicket {
+        private Ticket returnedTicket;
+
+        public ReturnedTicket(Ticket returnedTicket) {
+            this.returnedTicket = returnedTicket;
+        }
+
+        public ReturnedTicket() {
+        }
+
+        @JsonGetter(value = "returned_ticket")
+        public Ticket getReturnedTicket() {
+            return returnedTicket;
+        }
+
+        public void setReturnedTicket(Ticket returnedTicket) {
+            this.returnedTicket = returnedTicket;
+        }
+
+        @Override
+        public String toString() {
+            return "ReturnedTicket{" +
+                    "returnedTicket=" + returnedTicket +
+                    '}';
+        }
+    }
+  learner_created: true
+- name: src/cinema/ReturnTicketRequestDto.java
+  visible: true
+  text: |
+    package cinema;
+
+    public class ReturnTicketRequestDto {
+        private String token;
+
+        public ReturnTicketRequestDto(String token) {
+            this.token = token;
+        }
+
+        public ReturnTicketRequestDto() {
+        }
+
+        public String getToken() {
+            return token;
+        }
+
+        public void setToken(String token) {
+            this.token = token;
+        }
+
+        @Override
+        public String toString() {
+            return "ReturnTicketRequestDto{" +
+                    "token='" + token + '\'' +
+                    '}';
+        }
+    }
+  learner_created: true
+- name: src/cinema/Statistics.java
+  visible: true
+  learner_created: true
 feedback_link: https://hyperskill.org/learn/step/13378#comment
-status: Unchecked
+status: Solved
+feedback:
+  message: Well done! You've finished the project. Select a new project on <a href="https://hyperskill.org/projects">JetBrains
+    Academy</a> to continue learning.
+  time: Sat, 16 Apr 2022 02:33:06 UTC
 record: -1

@@ -51,7 +51,7 @@ public class Cinema {
         return "{" +
                 "total_rows=" + totalRows +
                 ", total_columns=" + totalColumns +
-                ", available_seats=" + availableTickets +
+                ", available_tickets=" + availableTickets +
                 '}';
     }
 }
