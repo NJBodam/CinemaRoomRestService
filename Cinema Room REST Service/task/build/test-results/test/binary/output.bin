@@ -9,19 +9,19 @@
 ) =========|_|==============|___/=/_/_/_/
 + :: Spring Boot ::                (v2.5.6)
 
-ã2022-04-16 03:39:49.404  INFO 25990 --- [    Test worker] cinema.Main                              : Starting Main using Java 17 on Bodams-MacBook-Air.local with PID 25990 (started by mac in /Users/mac/Desktop/Cinema Room REST Service1/Cinema Room REST Service/task)
-¶2022-04-16 03:39:49.418  INFO 25990 --- [    Test worker] cinema.Main                              : No active profile set, falling back to default profiles: default
-ì2022-04-16 03:39:53.581  INFO 25990 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 28852 (http)
-2022-04-16 03:39:53.627  INFO 25990 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-ï2022-04-16 03:39:53.628  INFO 25990 --- [    Test worker] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
-ò2022-04-16 03:39:53.879  INFO 25990 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-•2022-04-16 03:39:53.879  INFO 25990 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4221 ms
-õ2022-04-16 03:39:55.377  INFO 25990 --- [    Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoint(s) beneath base path '/actuator'
-¢2022-04-16 03:39:55.480  INFO 25990 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 28852 (http) with context path ''
-ú2022-04-16 03:39:55.506  INFO 25990 --- [    Test worker] cinema.Main                              : Started Main in 8.371 seconds (JVM running for 12.373)
-ü2022-04-16 03:39:57.387  INFO 25990 --- [io-28852-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-é2022-04-16 03:39:57.387  INFO 25990 --- [io-28852-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-Ü2022-04-16 03:39:57.390  INFO 25990 --- [io-28852-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+â2022-04-16 14:53:21.011  INFO 1534 --- [    Test worker] cinema.Main                              : Starting Main using Java 17 on Bodams-MacBook-Air.local with PID 1534 (started by mac in /Users/mac/Desktop/Cinema Room REST Service1/Cinema Room REST Service/task)
+•2022-04-16 14:53:21.017  INFO 1534 --- [    Test worker] cinema.Main                              : No active profile set, falling back to default profiles: default
+í2022-04-16 14:53:25.130  INFO 1534 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 28852 (http)
+~2022-04-16 14:53:25.174  INFO 1534 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+î2022-04-16 14:53:25.174  INFO 1534 --- [    Test worker] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
+ó2022-04-16 14:53:25.412  INFO 1534 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+§2022-04-16 14:53:25.412  INFO 1534 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4246 ms
+ö2022-04-16 14:53:27.246  INFO 1534 --- [    Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoint(s) beneath base path '/actuator'
+°2022-04-16 14:53:27.353  INFO 1534 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 28852 (http) with context path ''
+õ2022-04-16 14:53:27.390  INFO 1534 --- [    Test worker] cinema.Main                              : Started Main in 7.878 seconds (JVM running for 10.103)
+û2022-04-16 14:53:28.993  INFO 1534 --- [io-28852-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+ç2022-04-16 14:53:28.994  INFO 1534 --- [io-28852-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+Ö2022-04-16 14:53:28.997  INFO 1534 --- [io-28852-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
 [1;31m
 Start test 2[0m
 [1;31m
@@ -32,15 +32,3 @@
 Start test 5[0m
 [1;31m
 Start test 6[0m
-[1;31m
-Start test 7[0m
-[1;31m
-Start test 8[0m
-[1;31m
-Start test 9[0m
-[1;31m
-Start test 10[0m
-[1;31m
-Start test 11[0m
-[1;31m
-Start test 12[0m
