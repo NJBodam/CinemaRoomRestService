@@ -1,7 +1,89 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="CinemaTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-04-30T11:26:54" hostname="Bodams-MacBook-Air.local" time="10.615">
+<testsuite name="CinemaTests" tests="1" skipped="0" failures="1" errors="0" timestamp="2022-04-30T11:29:41" hostname="Bodams-MacBook-Air.local" time="11.455">
   <properties/>
-  <testcase name="start" classname="CinemaTests" time="10.615"/>
+  <testcase name="start" classname="CinemaTests" time="11.455">
+    <failure message="java.lang.AssertionError: Wrong answer in test #4&#10;&#10;POST /purchase should respond with status code 400, responded: 406&#10;&#10;Response body:&#10;&#10;{&quot;timestamp&quot;:&quot;2022-04-30T11:29:52.698+00:00&quot;,&quot;status&quot;:406,&quot;error&quot;:&quot;Not Acceptable&quot;,&quot;path&quot;:&quot;/purchase&quot;}&#10;&#10;Please find below the output of your program during this failed test.&#10;&#10;---&#10;&#10;.   ____          _            __ _ _&#10; /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \&#10;( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \&#10; \\/  ___)| |_)| | | | | || (_| |  ) ) ) )&#10;  '  |____| .__|_| |_|_| |_\__, | / / / /&#10; =========|_|==============|___/=/_/_/_/&#10; :: Spring Boot ::                (v2.5.6)&#10;&#10;2022-04-30 12:29:44.324  INFO 32618 --- [    Test worker] cinema.Main                              : Starting Main using Java 17 on Bodams-MacBook-Air.local with PID 32618 (started by mac in /Users/mac/Desktop/Cinema Room REST Service1/Cinema Room REST Service/task)&#10;2022-04-30 12:29:44.330  INFO 32618 --- [    Test worker] cinema.Main                              : No active profile set, falling back to default profiles: default&#10;2022-04-30 12:29:48.368  INFO 32618 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 28852 (http)&#10;2022-04-30 12:29:48.424  INFO 32618 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]&#10;2022-04-30 12:29:48.424  INFO 32618 --- [    Test worker] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]&#10;2022-04-30 12:29:48.690  INFO 32618 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext&#10;2022-04-30 12:29:48.690  INFO 32618 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4182 ms&#10;2022-04-30 12:29:50.215  INFO 32618 --- [    Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoint(s) beneath base path '/actuator'&#10;2022-04-30 12:29:50.293  INFO 32618 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 28852 (http) with context path ''&#10;2022-04-30 12:29:50.317  INFO 32618 --- [    Test worker] cinema.Main                              : Started Main in 7.707 seconds (JVM running for 11.672)&#10;2022-04-30 12:29:52.176  INFO 32618 --- [io-28852-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'&#10;2022-04-30 12:29:52.177  INFO 32618 --- [io-28852-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'&#10;2022-04-30 12:29:52.182  INFO 32618 --- [io-28852-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms&#10;2022-04-30 12:29:52.682  WARN 32618 --- [io-28852-exec-6] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpMediaTypeNotAcceptableException: Could not find acceptable representation]" type="java.lang.AssertionError">java.lang.AssertionError: Wrong answer in test #4
+
+POST /purchase should respond with status code 400, responded: 406
+
+Response body:
+
+{&quot;timestamp&quot;:&quot;2022-04-30T11:29:52.698+00:00&quot;,&quot;status&quot;:406,&quot;error&quot;:&quot;Not Acceptable&quot;,&quot;path&quot;:&quot;/purchase&quot;}
+
+Please find below the output of your program during this failed test.
+
+---
+
+.   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.5.6)
+
+2022-04-30 12:29:44.324  INFO 32618 --- [    Test worker] cinema.Main                              : Starting Main using Java 17 on Bodams-MacBook-Air.local with PID 32618 (started by mac in /Users/mac/Desktop/Cinema Room REST Service1/Cinema Room REST Service/task)
+2022-04-30 12:29:44.330  INFO 32618 --- [    Test worker] cinema.Main                              : No active profile set, falling back to default profiles: default
+2022-04-30 12:29:48.368  INFO 32618 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 28852 (http)
+2022-04-30 12:29:48.424  INFO 32618 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-04-30 12:29:48.424  INFO 32618 --- [    Test worker] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
+2022-04-30 12:29:48.690  INFO 32618 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-04-30 12:29:48.690  INFO 32618 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4182 ms
+2022-04-30 12:29:50.215  INFO 32618 --- [    Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoint(s) beneath base path '/actuator'
+2022-04-30 12:29:50.293  INFO 32618 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 28852 (http) with context path ''
+2022-04-30 12:29:50.317  INFO 32618 --- [    Test worker] cinema.Main                              : Started Main in 7.707 seconds (JVM running for 11.672)
+2022-04-30 12:29:52.176  INFO 32618 --- [io-28852-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-04-30 12:29:52.177  INFO 32618 --- [io-28852-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-04-30 12:29:52.182  INFO 32618 --- [io-28852-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+2022-04-30 12:29:52.682  WARN 32618 --- [io-28852-exec-6] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpMediaTypeNotAcceptableException: Could not find acceptable representation]
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.hyperskill.hstest.stage.StageTest.start(StageTest.java:155)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.runTestClass(JUnitTestClassExecutor.java:110)
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.execute(JUnitTestClassExecutor.java:58)
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.execute(JUnitTestClassExecutor.java:38)
+	at org.gradle.api.internal.tasks.testing.junit.AbstractJUnitTestClassProcessor.processTestClass(AbstractJUnitTestClassProcessor.java:62)
+	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.processTestClass(SuiteTestClassProcessor.java:51)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
+	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:94)
+	at jdk.proxy1/jdk.proxy1.$Proxy2.processTestClass(Unknown Source)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker$2.run(TestWorker.java:176)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.executeAndMaintainThreadName(TestWorker.java:129)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:100)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:60)
+	at org.gradle.process.internal.worker.child.ActionExecutionWorker.execute(ActionExecutionWorker.java:56)
+	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:133)
+	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:71)
+	at worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69)
+	at worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)
+</failure>
+  </testcase>
   <system-out><![CDATA[?[1;31m
 Start test 1?[0m
 
@@ -13,41 +95,26 @@ Start test 1?[0m
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::                (v2.5.6)
 
-2022-04-30 12:26:57.180  INFO 32511 --- [    Test worker] cinema.Main                              : Starting Main using Java 17 on Bodams-MacBook-Air.local with PID 32511 (started by mac in /Users/mac/Desktop/Cinema Room REST Service1/Cinema Room REST Service/task)
-2022-04-30 12:26:57.188  INFO 32511 --- [    Test worker] cinema.Main                              : No active profile set, falling back to default profiles: default
-2022-04-30 12:27:01.190  INFO 32511 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 28852 (http)
-2022-04-30 12:27:01.240  INFO 32511 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-04-30 12:27:01.241  INFO 32511 --- [    Test worker] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
-2022-04-30 12:27:01.506  INFO 32511 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-04-30 12:27:01.506  INFO 32511 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4097 ms
-2022-04-30 12:27:02.971  INFO 32511 --- [    Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoint(s) beneath base path '/actuator'
-2022-04-30 12:27:03.056  INFO 32511 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 28852 (http) with context path ''
-2022-04-30 12:27:03.081  INFO 32511 --- [    Test worker] cinema.Main                              : Started Main in 7.032 seconds (JVM running for 10.261)
-2022-04-30 12:27:04.892  INFO 32511 --- [io-28852-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2022-04-30 12:27:04.893  INFO 32511 --- [io-28852-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2022-04-30 12:27:04.896  INFO 32511 --- [io-28852-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2022-04-30 12:29:44.324  INFO 32618 --- [    Test worker] cinema.Main                              : Starting Main using Java 17 on Bodams-MacBook-Air.local with PID 32618 (started by mac in /Users/mac/Desktop/Cinema Room REST Service1/Cinema Room REST Service/task)
+2022-04-30 12:29:44.330  INFO 32618 --- [    Test worker] cinema.Main                              : No active profile set, falling back to default profiles: default
+2022-04-30 12:29:48.368  INFO 32618 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 28852 (http)
+2022-04-30 12:29:48.424  INFO 32618 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-04-30 12:29:48.424  INFO 32618 --- [    Test worker] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
+2022-04-30 12:29:48.690  INFO 32618 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-04-30 12:29:48.690  INFO 32618 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4182 ms
+2022-04-30 12:29:50.215  INFO 32618 --- [    Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoint(s) beneath base path '/actuator'
+2022-04-30 12:29:50.293  INFO 32618 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 28852 (http) with context path ''
+2022-04-30 12:29:50.317  INFO 32618 --- [    Test worker] cinema.Main                              : Started Main in 7.707 seconds (JVM running for 11.672)
+2022-04-30 12:29:52.176  INFO 32618 --- [io-28852-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-04-30 12:29:52.177  INFO 32618 --- [io-28852-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-04-30 12:29:52.182  INFO 32618 --- [io-28852-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
 ?[1;31m
 Start test 2?[0m
 ?[1;31m
 Start test 3?[0m
 ?[1;31m
 Start test 4?[0m
-?[1;31m
-Start test 5?[0m
-?[1;31m
-Start test 6?[0m
-?[1;31m
-Start test 7?[0m
-?[1;31m
-Start test 8?[0m
-?[1;31m
-Start test 9?[0m
-?[1;31m
-Start test 10?[0m
-?[1;31m
-Start test 11?[0m
-?[1;31m
-Start test 12?[0m
+2022-04-30 12:29:52.682  WARN 32618 --- [io-28852-exec-6] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpMediaTypeNotAcceptableException: Could not find acceptable representation]
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

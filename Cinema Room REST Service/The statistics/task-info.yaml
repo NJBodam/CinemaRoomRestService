@@ -807,9 +807,42 @@ files:
   visible: true
   learner_created: true
 feedback_link: https://hyperskill.org/learn/step/13378#comment
-status: Solved
+status: Failed
 feedback:
-  message: Well done! You've finished the project. Select a new project on <a href="https://hyperskill.org/projects">JetBrains
-    Academy</a> to continue learning.
-  time: Sat, 30 Apr 2022 11:27:06 UTC
+  message: |-
+    Wrong answer in test #4
+
+    POST /purchase should respond with status code 400, responded: 406
+
+    Response body:
+
+    {&quot;timestamp&quot;:&quot;2022-04-30T11:29:52.698+00:00&quot;,&quot;status&quot;:406,&quot;error&quot;:&quot;Not Acceptable&quot;,&quot;path&quot;:&quot;/purchase&quot;}
+
+    Please find below the output of your program during this failed test.
+
+    ---
+
+    .   ____          _            __ _ _
+     /\\ / ___&#39;_ __ _ _(_)_ __  __ _ \ \ \ \
+    ( ( )\___ | &#39;_ | &#39;_| | &#39;_ \/ _` | \ \ \ \
+     \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+      &#39;  |____| .__|_| |_|_| |_\__, | / / / /
+     =========|_|==============|___/=/_/_/_/
+     :: Spring Boot ::                (v2.5.6)
+
+    2022-04-30 12:29:44.324  INFO 32618 --- [    Test worker] cinema.Main                              : Starting Main using Java 17 on Bodams-MacBook-Air.local with PID 32618 (started by mac in /Users/mac/Desktop/Cinema Room REST Service1/Cinema Room REST Service/task)
+    2022-04-30 12:29:44.330  INFO 32618 --- [    Test worker] cinema.Main                              : No active profile set, falling back to default profiles: default
+    2022-04-30 12:29:48.368  INFO 32618 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 28852 (http)
+    2022-04-30 12:29:48.424  INFO 32618 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+    2022-04-30 12:29:48.424  INFO 32618 --- [    Test worker] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
+    2022-04-30 12:29:48.690  INFO 32618 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+    2022-04-30 12:29:48.690  INFO 32618 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4182 ms
+    2022-04-30 12:29:50.215  INFO 32618 --- [    Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoint(s) beneath base path &#39;/actuator&#39;
+    2022-04-30 12:29:50.293  INFO 32618 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 28852 (http) with context path &#39;&#39;
+    2022-04-30 12:29:50.317  INFO 32618 --- [    Test worker] cinema.Main                              : Started Main in 7.707 seconds (JVM running for 11.672)
+    2022-04-30 12:29:52.176  INFO 32618 --- [io-28852-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet &#39;dispatcherServlet&#39;
+    2022-04-30 12:29:52.177  INFO 32618 --- [io-28852-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet &#39;dispatcherServlet&#39;
+    2022-04-30 12:29:52.182  INFO 32618 --- [io-28852-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+    2022-04-30 12:29:52.682  WARN 32618 --- [io-28852-exec-6] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpMediaTypeNotAcceptableException: Could not find acceptable representation]
+  time: Sat, 30 Apr 2022 11:29:53 UTC
 record: 4
