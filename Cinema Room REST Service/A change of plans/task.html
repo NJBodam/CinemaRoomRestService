@@ -1,8 +1,8 @@
-<h5>Description</h5>
+<h5 id="description">Description</h5>
 
 <p>We live in a fast world, and our plans may change very quickly. Let's add the ability to refund a ticket if a customer can't come and watch a movie. We will use tokens to secure the ticket refund process.</p>
 
-<h5>Objectives</h5>
+<h5 id="objectives">Objectives</h5>
 
 <p>Change the JSON response when a customer purchases a ticket by making a <code class="java">POST</code> request to the <code class="java">/purchase</code> endpoint. Turn it into the following format:</p>
 
@@ -15,7 +15,7 @@
     }
 }</code></pre>
 
-<p>We recommend using the <code class="java">randomUUID()</code> method of the <code class="java">UUID</code> class to generate tokens. Take a look at this <a target="_blank" href="https://www.baeldung.com/java-uuid" rel="noopener noreferrer nofollow">UUID Guide</a> by Baeldung if you're interested in more detail.</p>
+<p>We recommend using the <code class="java">randomUUID()</code> method of the <code class="java">UUID</code> class to generate tokens. Take a look at this <a target="_blank" target="_blank" href="https://www.baeldung.com/java-uuid" rel="noopener noreferrer nofollow">UUID Guide</a> by Baeldung if you're interested in more detail.</p>
 
 <p>Implement the <code class="java">/return</code> endpoint, which will handle <code class="java">POST</code> requests and allow customers to refund their tickets.</p>
 
@@ -37,7 +37,7 @@
     "error": "Wrong token!"
 }</code></pre>
 
-<h5>Examples</h5>
+<h5 id="examples">Examples</h5>
 
 <p><strong>Example 1</strong>: <em>a correct</em> <code class="java">POST /purchase</code><em> request</em></p>
 

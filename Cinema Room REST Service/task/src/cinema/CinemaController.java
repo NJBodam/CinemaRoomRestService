@@ -3,12 +3,11 @@ package cinema;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
-import java.util.stream.Collectors;
+
 
 @RestController
 @RequestMapping
@@ -46,10 +45,8 @@ public class CinemaController {
         return row > 1 ? Math.toIntExact((row - 1) * 9 + column - 1) : Math.toIntExact(row * column - 1);
     }
 
-    private ResponseEntity<?> getErrorDtoResponseEntity(String s, HttpStatus h) {
-        ErrorDto errorDto = new ErrorDto();
-        errorDto.setError(s);
-        return new ResponseEntity<>(errorDto, h);
+    private ResponseEntity<ErrorDto> getErrorDtoResponseEntity(String s, HttpStatus h) {
+        return new ResponseEntity<>(new ErrorDto(s), h);
     }
 
     @PostMapping("/return")
@@ -67,7 +64,6 @@ public class CinemaController {
     @PostMapping("/stats")
     public ResponseEntity<?> returnTicket(@RequestParam(value = "password", required = false) String password) {
         Optional<String> pw = Optional.ofNullable(password);
-
         if (pw.isPresent() && pw.get().equals(PASSWORD)) {
             stats.setNumberOfAvailableSeats(81 - soldSeats.size());
             int totalIncome = soldSeats.parallelStream().mapToInt(x -> Math.toIntExact(x.getTicket().getPrice())).sum();
@@ -79,11 +75,10 @@ public class CinemaController {
     }
 
     @GetMapping("/seats")
-    public ResponseEntity<?> getInfo() throws Exception {
+    public ResponseEntity<Cinema> getInfo() {
         Ticket ticket;
         List<Ticket> tickets = new ArrayList<>();
         Seat seat;
-
         try {
             if (cinemaRoom == null) {
                 int[][] cinemaSeats = new int[9][9];
@@ -95,9 +90,8 @@ public class CinemaController {
                     }
                     num = 1;
                 }
-
-                for (int i = 0; i < cinemaSeats.length; i++) {
-                    for (int j = 0; j < cinemaSeats[i].length; j++) {
+                for (int[] cinemaSeat : cinemaSeats) {
+                    for (int i : cinemaSeat) {
                         ticket = new Ticket();
                         ticket.setRow((long) num);
                         if (num <= 4) {
@@ -105,7 +99,7 @@ public class CinemaController {
                         } else {
                             ticket.setPrice(8L);
                         }
-                        ticket.setColumn((long) cinemaSeats[i][j]);
+                        ticket.setColumn((long) i);
                         tickets.add(ticket);
                         seat = new Seat();
                         seat.setTicket(ticket);

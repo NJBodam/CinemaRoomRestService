@@ -3,7 +3,7 @@ hyperskill_project:
   ide_files: https://stepik.org/media/attachments/lesson/539847/additional_files.json
   is_template_based: false
   use_ide: true
-update_date: Sat, 16 Apr 2022 13:55:52 UTC
+update_date: Sat, 30 Apr 2022 09:30:11 UTC
 stages:
 - id: 945
   step: 13375
@@ -29,12 +29,12 @@ topics:
     theory_id: 6633
   - title: HyperText Transfer Protocol
     theory_id: 6569
-  - title: Immutability
-    theory_id: 7929
-  - title: Introduction to operating systems
-    theory_id: 9704
   - title: Computer algorithms
     theory_id: 16547
+  - title: Immutability
+    theory_id: 7929
+  - title: Introduction to Operating systems
+    theory_id: 9704
   - title: The big O notation
     theory_id: 16699
   - title: Data structures
@@ -43,7 +43,7 @@ topics:
     theory_id: 6434
   - title: HTTP URL
     theory_id: 6740
-  - title: Tags and attributes
+  - title: Tags and Attributes
     theory_id: 7536
   - title: HTML page structure
     theory_id: 6491
@@ -69,6 +69,8 @@ topics:
     theory_id: 13287
   - title: Computer programming
     theory_id: 8739
+  - title: Paradigms
+    theory_id: 15860
   - title: Introduction to Java
     theory_id: 3500
   - title: Basic literals
@@ -109,8 +111,6 @@ topics:
     theory_id: 3507
   - title: Switch statement
     theory_id: 3504
-  - title: Characters
-    theory_id: 3514
   - title: Sizes and ranges
     theory_id: 3532
   - title: Type casting
@@ -123,8 +123,6 @@ topics:
     theory_id: 3489
   - title: Functional decomposition
     theory_id: 10570
-  - title: String
-    theory_id: 3523
   - title: Primitive and reference types
     theory_id: 5035
   - title: Array
@@ -133,6 +131,10 @@ topics:
     theory_id: 3594
   - title: Iterating over arrays
     theory_id: 3602
+  - title: Characters
+    theory_id: 3514
+  - title: String
+    theory_id: 3523
   - title: Errors in programs
     theory_id: 3536
   - title: What is an exception
@@ -147,14 +149,20 @@ topics:
     theory_id: 13931
   - title: Multidimensional array
     theory_id: 1933
+  - title: Pseudocode
+    theory_id: 15090
+  - title: Pseudocode basics
+    theory_id: 19510
+  - title: Build tools
+    theory_id: 4284
+  - title: External resources
+    theory_id: 6216
   - title: Command line overview
     theory_id: 8977
-  - title: Parameters and options
+  - title: Parameters and Options
     theory_id: 9746
   - title: Java Archive
     theory_id: 4311
-  - title: Build tools
-    theory_id: 4284
   - title: Gradle basics
     theory_id: 5075
   - title: Basic project with Gradle
@@ -163,10 +171,6 @@ topics:
     theory_id: 7917
   - title: Dependency management
     theory_id: 5076
-  - title: External resources
-    theory_id: 6216
-  - title: Pseudocode
-    theory_id: 15090
   - title: Fixed-size array
     theory_id: 7255
   - title: Dynamic array
